@@ -32,7 +32,7 @@ server.listen(PORT, () => {
 app.use(cookieParser());
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || origin === "http://localhost:5173") {
+    if (!origin || origin === process.env.CLIENT_UR) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
