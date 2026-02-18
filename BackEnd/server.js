@@ -31,13 +31,7 @@ server.listen(PORT, () => {
 //middlewares
 app.use(cookieParser());
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || origin === process.env.CLIENT_UR) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: process.env.CLIENT_URL,
   credentials: true
 }));
 app.use(express.json());
